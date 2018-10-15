@@ -6,9 +6,9 @@
   margin: 40px; 
 }
 
-.color input[type=radio]:checked + .colorSchema{
-    border: 2px dotted;
-      height: 42px;
+.color input[name="rgrp"]:checked + .colorSchema{
+  border: 3px dotted;
+  height: 42px;
   width: 42px;
 }
 .color .colorSchema{
@@ -20,14 +20,15 @@ input[type=radio]{
     display:none;
 }
 .color, .size, .qty{ margin-top: 3%; }
+
 .sizeSchema{
   border: 1px solid #b4b4b4;
-  height: 30px;
+  height: 40px;
   width: 40px;
   text-align: center;
 }
-.sizeSchema:focus{
-  border: 2px solid red;
+.size input[name="sgrp"]:checked + .sizeSchema{
+    border: 2px solid red;
 }
 .btn{
   margin-top: 4%;
