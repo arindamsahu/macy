@@ -47,7 +47,7 @@
         <Row>
              <Col> <Label for="address1">Address 1*:</Label></Col>
         <Col>
-            <Input type="text" name="address1" id="address1" placeholder="with a placeholder" />
+            <Input type="text" name="address1" id="address1" placeholder="Type in Address" />
         </Col>
 
         </Row>
@@ -56,7 +56,7 @@
 
          <Col> <Label for="address2">Address 2:</Label></Col>
         <Col>
-            <Input type="text" name="address2" id="address2" placeholder="with a placeholder" />
+            <Input type="text" name="address2" id="address2" placeholder="Type in Address" />
         </Col>
 
           </Row>
@@ -64,7 +64,7 @@
 
           <Col><Label for="city">City*:</Label></Col>
         <Col>
-            <Input type="text" name="city" id="city" placeholder="with a placeholder" />
+            <Input type="text" name="city" id="city" placeholder="Type in City" />
         </Col>
 
           </Row>
@@ -72,14 +72,14 @@
 
           <Col><Label for="State">State*:</Label></Col>
         <Col>
-            <Input type="text" name="state" id="state" placeholder="with a placeholder" />
+            <Input type="text" name="state" id="state" placeholder="Type in State" />
         </Col>
 
           </Row>
                   <Row>
     <Col><Label for="zip">Zip*: </Label></Col>
         <Col>
-            <Input type="text" name="zip" id="zip" placeholder="with a placeholder" />
+            <Input type="text" name="zip" id="zip" placeholder="Type in Zip" onChange={this.validateZip}/>
         </Col>
         </Row>
 

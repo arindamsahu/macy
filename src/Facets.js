@@ -50,7 +50,7 @@ class Facets extends Component {
     if(Object.keys(this.props.passDownData).length !== 0){
       for (var i = 0; i < this.props.passDownData.color.length; i++) {
         let bgColor = this.props.passDownData.color[i];
-        palette.push(<Col><Input type="radio" name="rgrp" id={i} value={this.props.passDownData.color[i]} onChange={this.colorUpdate} defaultChecked={i == 0? true: false}/>
+        palette.push(<Col><Input type="radio" name="rgrp" id={i} value={this.props.passDownData.color[i]} onChange={this.colorUpdate} defaultChecked={i === 0? true: false}/>
           <Label className="colorSchema" style={{backgroundColor:bgColor}} for={i}/></Col>);
         }
       }
@@ -61,7 +61,7 @@ class Facets extends Component {
           let palette=[];
     if(Object.keys(this.props.passDownData).length !== 0){
       for (var i = 0; i < this.props.passDownData.size.length; i++) {
-        palette.push(<Col><Input type="radio" name="sgrp" id={this.props.passDownData.size[i]} value={this.props.passDownData.size[i]} onChange={this.sizeUpdate} defaultChecked={i == 0? true: false}/>
+        palette.push(<Col><Input type="radio" name="sgrp" id={this.props.passDownData.size[i]} value={this.props.passDownData.size[i]} onChange={this.sizeUpdate} defaultChecked={i === 0? true: false}/>
           <Label className="sizeSchema" for={this.props.passDownData.size[i]}>{this.props.passDownData.size[i]}</Label>
           </Col>);
         }

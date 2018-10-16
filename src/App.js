@@ -36,7 +36,7 @@ class App extends Component {
   }
 
   loadImage(){
-    if(this.state.details.product_img != undefined)
+    if(this.state.details.product_img !== undefined)
      return <img src={this.state.details.product_img} alt = {this.state.details.product_name}/>
    else
     return <img src={loader} alt = {this.state.details.product_name}/>
