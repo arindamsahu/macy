@@ -15,6 +15,18 @@ class Facets extends Component {
     this.props.handleClick(this.state);
   }
 
+  componentDidUpdate(oldProps){
+    if(oldProps.passDownData !== this.props.passDownData) {
+      // This triggers an unnecessary re-render
+      this.setState({
+        size: this.props.passDownData.size[0],
+        color: this.props.passDownData.color[0]
+      }, () => {
+        this.props.handleClick(this.state);
+      });
+    }
+  }
+
   qtyUpdate(e){
     this.setState({qty: e.target.value}, () => {
       this.props.handleClick(this.state);
@@ -38,7 +50,7 @@ class Facets extends Component {
     if(Object.keys(this.props.passDownData).length !== 0){
       for (var i = 0; i < this.props.passDownData.color.length; i++) {
         let bgColor = this.props.passDownData.color[i];
-        palette.push(<Col><Input type="radio" name="rgrp" id={i} value={this.props.passDownData.color[i]} onChange={this.colorUpdate} defaultChecked={true}/>
+        palette.push(<Col><Input type="radio" name="rgrp" id={i} value={this.props.passDownData.color[i]} onChange={this.colorUpdate} defaultChecked={i == 0? true: false}/>
           <Label className="colorSchema" style={{backgroundColor:bgColor}} for={i}/></Col>);
         }
       }
@@ -49,7 +61,7 @@ class Facets extends Component {
           let palette=[];
     if(Object.keys(this.props.passDownData).length !== 0){
       for (var i = 0; i < this.props.passDownData.size.length; i++) {
-        palette.push(<Col><Input type="radio" name="sgrp" id={this.props.passDownData.size[i]} value={this.props.passDownData.size[i]} onChange={this.sizeUpdate} defaultChecked={true}/>
+        palette.push(<Col><Input type="radio" name="sgrp" id={this.props.passDownData.size[i]} value={this.props.passDownData.size[i]} onChange={this.sizeUpdate} defaultChecked={i == 0? true: false}/>
           <Label className="sizeSchema" for={this.props.passDownData.size[i]}>{this.props.passDownData.size[i]}</Label>
           </Col>);
         }

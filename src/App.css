@@ -1,9 +1,5 @@
-.image{
-  float: left;
-}
-.details{
-  display: inline-block;
-  margin: 40px; 
+.app{
+  margin-top: 4%;
 }
 
 .color input[name="rgrp"]:checked + .colorSchema{
@@ -36,4 +32,7 @@ input[type=radio]{
 
 .address div.row{
   margin-top: 1%;
+}
+#error{
+  color: red;
 }

@@ -3,7 +3,7 @@ import './App.css';
 import Facets from './Facets';
 import Address from './Address';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import {Button, Modal, ModalBody, ModalHeader, ModalFooter} from 'reactstrap';
+import {Row, Col, Container, Button, Modal, ModalBody, ModalHeader, ModalFooter} from 'reactstrap';
 
 class App extends Component {
 
@@ -34,13 +34,25 @@ class App extends Component {
     });
   }
 
+  loadImage(){
+    if(this.state.details.product_img != undefined)
+     return <img src={this.state.details.product_img} alt = {this.state.details.product_name}/>
+   else
+    return <img src="https://i.gifer.com/embedded/download/7YUz.gif" alt = {this.state.details.product_name}/>
+  }
+
   render() {
     return (
        <Router>
-      <div className="App">
+       <Container>
+      <div className="app">
+      <Row>
+      <Col>
         <div className="image">
-          <img src={this.state.details.product_img} alt = {this.state.details.product_name}/>
+          {this.loadImage()}
         </div>
+        </Col>
+        <Col>
         <div className="details"> 
           <h3>{this.state.details.product_name}</h3>
         
@@ -51,6 +63,7 @@ class App extends Component {
           
           <Route path="/address" render={(props) => <Address {...props} handleAddress={this.handleAddress.bind(this)}/>}/>
         </div>
+        </Col>
 
         <Modal isOpen={this.state.modal}>
           <ModalHeader toggle={this.toggle}> Product Summary</ModalHeader>
@@ -69,7 +82,9 @@ class App extends Component {
             <Link to="/"><Button color="primary" onClick={this.toggle}>OK</Button></Link>
           </ModalFooter>
         </Modal>
+        </Row>
       </div>
+      </Container>
     </Router>
     );
   }
