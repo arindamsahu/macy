@@ -32,8 +32,8 @@
 
     validate(e){
       let flag = true;
-      if(e.target.elements.address1.value == '' || e.target.elements.city.value == '' ||
-        e.target.elements.state.value == '' || e.target.elements.zip.value == ''){
+      if(e.target.elements.address1.value === '' || e.target.elements.city.value === '' ||
+        e.target.elements.state.value === '' || e.target.elements.zip.value === ''){
         flag = false;
       }
       return flag;

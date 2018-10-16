@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import loader from './loader.gif';
 import Facets from './Facets';
 import Address from './Address';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -14,7 +15,7 @@ class App extends Component {
   }
 
     componentDidMount(){
-    fetch("https://api.myjson.com/bins/e0thc")
+    fetch("https://api.myjson.com/bins/tgtoo")
     .then(response => response.json())
     .then(data => this.setState({details: data}));
   }
@@ -38,7 +39,7 @@ class App extends Component {
     if(this.state.details.product_img != undefined)
      return <img src={this.state.details.product_img} alt = {this.state.details.product_name}/>
    else
-    return <img src="https://i.gifer.com/embedded/download/7YUz.gif" alt = {this.state.details.product_name}/>
+    return <img src={loader} alt = {this.state.details.product_name}/>
   }
 
   render() {
@@ -72,11 +73,11 @@ class App extends Component {
             Size: {this.state.facets.size} <br/>
             Quantity: {this.state.facets.qty} <br/><hr/>
             <h6>Shipping Address</h6>
-            Address 1: {this.state.shipping.address1} <br/>
-            Address 2: {this.state.shipping.address2} <br/>
-            City: {this.state.shipping.city} <br/>
-            State: {this.state.shipping.state} <br/>
-            Zip: {this.state.shipping.zip} <br/>
+            {this.state.shipping.address1} , 
+            {this.state.shipping.address2} ,
+            {this.state.shipping.city} ,
+            {this.state.shipping.state} ,
+            {this.state.shipping.zip} <br/>
           </ModalBody>
           <ModalFooter>
             <Link to="/"><Button color="primary" onClick={this.toggle}>OK</Button></Link>
